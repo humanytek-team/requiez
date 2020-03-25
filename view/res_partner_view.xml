@@ -27,11 +27,13 @@
     <field name="inherit_id" ref="account.view_partner_property_form"/>
     <field name="arch" type="xml">
       <group name="banks" position="before">
-        <field name="credit_limit" attrs="{'invisible': [('credit_ignore', '=', True)]}"/>
-        <field name="credit_ignore"/>
-        <field name="grace_days" attrs="{'invisible': [('expired_ignore', '=', True)]}"/>
-        <field name="expired_ignore"/>
-        <field name="sale_order_ignore"/>
+        <group name="credit_control" string="credit control">
+          <field name="credit_limit" attrs="{'invisible': [('credit_ignore', '=', True)]}"/>
+          <field name="credit_ignore"/>
+          <field name="grace_days" attrs="{'invisible': [('expired_ignore', '=', True)]}"/>
+          <field name="expired_ignore"/>
+          <field name="sale_order_ignore"/>
+        </group>
       </group>
     </field>
   </record>
