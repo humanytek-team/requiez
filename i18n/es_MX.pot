@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-25 15:58+0000\n"
-"PO-Revision-Date: 2020-03-25 15:58+0000\n"
+"POT-Creation-Date: 2020-03-26 18:05+0000\n"
+"PO-Revision-Date: 2020-03-26 18:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -107,9 +107,7 @@ msgstr "<span>Transporte</span>"
 msgid "<strong>\n"
 "                      <span>S/V</span>\n"
 "                    </strong>"
-msgstr "<strong>\n"
-"                      <span>S/V</span>\n"
-"                    </strong>"
+msgstr ""
 
 #. module: requiez
 #: model_terms:ir.ui.view,arch_db:requiez.report_sale_order_document_date
@@ -231,7 +229,7 @@ msgstr "Crédito límite"
 #: model:ir.model.fields,field_description:requiez.field_res_partner__credit_used
 #: model:ir.model.fields,field_description:requiez.field_res_users__credit_used
 msgid "Credit Used"
-msgstr "Crédito usado"
+msgstr "Crédito utilizado"
 
 #. module: requiez
 #: model_terms:ir.ui.view,arch_db:requiez.mrp_report_document
@@ -251,7 +249,7 @@ msgstr "Referencia cliente"
 #. module: requiez
 #: model:ir.model.fields,field_description:requiez.field_sale_order__date_promised
 msgid "Date Promised"
-msgstr "Fecha promesa"
+msgstr "Fecha Promesa de Entrega"
 
 #. module: requiez
 #: model:ir.model.fields,field_description:requiez.field_mrp_mps_location__display_name
@@ -427,7 +425,7 @@ msgstr "Cantidad"
 #. module: requiez
 #: model:res.groups,name:requiez.group_confirm_order
 msgid "Responsible Confirm Order"
-msgstr "Responsible de confirmar Orden"
+msgstr "Responsable de confirmar Orden"
 
 #. module: requiez
 #: model:res.groups,name:requiez.group_prioritize
@@ -446,9 +444,11 @@ msgid "Sale Order Ignore"
 msgstr "Ignorar ventas sin facturar"
 
 #. module: requiez
+#: model:ir.actions.act_window,name:requiez.action_sale_order_type
+#: model:ir.ui.menu,name:requiez.menu_sale_order_type
 #: model_terms:ir.ui.view,arch_db:requiez.mrp_mps_location_view
 msgid "Sale Order Type"
-msgstr "Tipo de order de venta"
+msgstr "Tipo de pedido de venta"
 
 #. module: requiez
 #: model:ir.model,name:requiez.model_sale_order_line
