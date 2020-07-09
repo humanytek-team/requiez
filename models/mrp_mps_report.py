@@ -65,18 +65,26 @@ class MrpMpsReport(models.TransientModel):
         }
         date = date_dict.get(self.period, lambda d: d)(date)
         mrp_mps_locations = MrpMpsLocation.search([])
+        location_ids = []
         list_location = []
         len_location = len(mrp_mps_locations)
         cont = 1
         for mrp_mps_location in mrp_mps_locations:
+            location_ids.append(mrp_mps_location.location_id.id)
             tuple_location = ('location_id', 'child_of',
                               mrp_mps_location.location_id.id)
             if cont < len_location:
                 list_location.append('|')
             list_location.append(tuple_location)
             cont += 1
-        initial = product.qty_available
 
+        initial = 0.0
+        stock_quats_ids = self.env['stock.quant'].search(
+            [('product_id', '=', product.id), ('quantity', '>', 0.0), ('location_id', 'in', (location_ids))])
+
+        initial += sum([c.quantity for c in stock_quats_ids])
+
+        # initial = product.qty_available
         # Compute others cells
 
         # Better perfomance
@@ -110,7 +118,7 @@ class MrpMpsReport(models.TransientModel):
                     format="MMM YY", date=date, locale=self._context.get('lang') or 'en_US')
             elif self.period == 'week':
                 date_to = date + relativedelta.relativedelta(days=7)
-                name = _('Week %s') % date.strftime('%W')
+                name = _('Week %s') % date.isocalendar()[1]
             forecasts = self.env['sale.forecast'].search([  # TODO Check
                 ('date', '>=', date.strftime('%Y-%m-%d')),
                 ('date', '<', date_to.strftime('%Y-%m-%d')),
